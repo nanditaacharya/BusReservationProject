@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddBusController;
 use App\Http\Controllers\BusRouteController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PagesController;
@@ -23,6 +24,13 @@ Route::post('/category/store', [CategoryController::class, 'store'])->name('cate
 Route::get('/category/{id}/edit', [CategoryController::class, 'edit'])->name('category.edit');
 Route::put('/category/{id}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('/category/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+
+Route::get('/addbus',[AddBusController::class,'index'])->name('addbus.index');
+Route::get('/addbus/create',[AddBusController::class,'create'])->name('addbus.create');
+Route::post('/addbus/store',[AddBusController::class,'store'])->name('addbus.store');
+Route::get('/addbus/{id}/edit',[AddBusController::class,'edit'])->name('addbus.edit');
+Route::put('/addbus/{id}',[AddBusController::class,'update'])->name('addbus.update');
+Route::delete('/addbus/{id}',[AddBusController::class,'destroy'])->name('addbus.destroy');
 
 
 

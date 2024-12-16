@@ -12,17 +12,14 @@ class CreateCategoriesTable extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('picture')->nullable();
-            $table->string('types');
-
-            $table->string('route_name')->nullable(); // Add this line to include route_name
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('categories', function (Blueprint $table) {
+        $table->id();
+        $table->string('name');
+        $table->integer('priority_number');
+        $table->timestamps();
+    });
+}
 
     /**
      * Reverse the migrations.

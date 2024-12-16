@@ -64,7 +64,7 @@
                         <a href="{{route('category.index')}}" class="block hover:bg-gray-200 p-4 rounded-lg font-bold text-xl">Categories</a>
                     </li>
                     <li>
-                        <a href="" class="block hover:bg-gray-200 p-4 rounded-lg font-bold text-xl">Booking</a>
+                        <a href="{{route('addbus.index')}}" class="block hover:bg-gray-200 p-4 rounded-lg font-bold text-xl">Add Bus</a>
                     </li>
                     <li>
                         <a href="" class="block hover:bg-gray-200 p-4 rounded-lg font-bold text-xl">Booked</a>
