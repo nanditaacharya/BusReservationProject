@@ -29,17 +29,25 @@
                     <li class="md:px-4 md:py-2 hover:text-slate-400"><a href="#">Contact us</a></li>
                 </ul>
             </div>
-            <div class="order-2 flex  space-x-4 md:order-3">
-                <button class="px-4 py-2 font-semibold bg-green-700 hover:bg-green-800 text-white rounded-xl flex items-center gap-2">
+            <div class="order-2 flex space-x-4 md:order-3">
+            @auth
+                <span class="text-white">Hi! {{ Auth::user()->name }}</span>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="px-4 py-2 bg-slate-700 font-semibold hover:bg-slate-600 text-white rounded-xl flex items-center gap-2">
+                        <span>Logout</span>
+                    </button>
+                </form>
+            @else
+                    <button class="px-4 py-2 font-semibold bg-green-700 hover:bg-green-800 text-white rounded-xl flex items-center gap-2">
+                    <a href="{{ route('register') }}">Register</a>
+                    </button>
 
-                    <span>Register</span>
-                </button>
-
-                <button class="px-4 py-2 bg-slate-700 font-semibold hover:bg-slate-600 text-white rounded-xl flex items-center gap-2">
-
-                    <span>Login</span>
-                </button>
-            </div>
+                    <button class="px-4 py-2 bg-slate-700 font-semibold hover:bg-slate-600 text-white rounded-xl flex items-center gap-2">
+                    <a href="/login">Login</a>
+                    </button>
+            @endauth
+        </div>
         </div>
     </nav>
 

@@ -12,7 +12,10 @@ Route::get('/',[PagesController::class,'welcome'])->name('home');
 Route::get('/booking',[PagesController::class,'booking'])->name('booking');
 Route::get('/viewcategory/{id}',[PagesController::class,'viewcategory'])->name('viewcategory');
 
-Route::get('/bus-route', [BusRouteController::class, 'index'])->name('bus-route.index');
+
+
+Route::middleware(['auth','isadmin'])->group(function () {
+    Route::get('/bus-route', [BusRouteController::class, 'index'])->name('bus-route.index');
 Route::get('/bus-route/create', [BusRouteController::class, 'create'])->name('bus-route.create');
 Route::post('/bus-route', [BusRouteController::class, 'store'])->name('bus-route.store');
 Route::get('/bus-route/{id}/edit', [BusRouteController::class, 'edit'])->name('bus-route.edit');
@@ -42,12 +45,12 @@ Route::get('/schedule/{id}/edit', [ScheduleController::class, 'edit'])->name('sc
 Route::put('/schedule/{id}', [ScheduleController::class, 'update'])->name('schedule.update');
 Route::delete('/schedule/{id}', [ScheduleController::class, 'destroy'])->name('schedule.destroy');
 
-
-
+   
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified','isadmin'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
