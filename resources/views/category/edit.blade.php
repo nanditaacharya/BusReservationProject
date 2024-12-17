@@ -6,23 +6,24 @@
 
 <form action="{{ route('category.update', $category->id) }}" method="POST" class="mt-5" enctype="multipart/form-data">
     @csrf
-    @method('PUT') 
-  
-    <input type="text" placeholder="Enter Category Name" name="name" class="w-full rounded-lg my-2" value="{{ old('name', $category->name) }}">
-    @error('name')
-        <p class="text-red-500 -mt-2">{{ $message }}</p>
-    @enderror
-
-  
+    @method('PUT')
     <input
         type="number"
         name="priority_number"
         placeholder="Enter Priority Number"
         class="w-full rounded-lg my-2"
-        value="{{ old('priority_number', $category->priority_number) }}"> 
+        value="{{ old('priority_number', $category->priority_number) }}">
     @error('priority_number')
-        <p class="text-red-500 -mt-2">{{ $message }}</p>
+    <p class="text-red-500 -mt-2">{{ $message }}</p>
     @enderror
+
+    <input type="text" placeholder="Enter Category Name" name="name" class="w-full rounded-lg my-2" value="{{ old('name', $category->name) }}">
+    @error('name')
+    <p class="text-red-500 -mt-2">{{ $message }}</p>
+    @enderror
+
+
+
 
 
     <div class="flex justify-center">

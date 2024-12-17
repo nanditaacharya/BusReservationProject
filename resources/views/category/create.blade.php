@@ -6,17 +6,6 @@
 
 <form action="{{route('category.store')}}" method="POST" class="mt-5">
     @csrf
-
-    <input
-        type="text"
-        name="name"
-        placeholder="Enter Category Name"
-        class="w-full rounded-lg my-2"
-        value="{{old('name')}}">
-    @error('name')
-        <p class="text-red-500 -mt-2">{{$message}}</p>
-    @enderror
-
     <input
         type="number"
         name="priority_number"
@@ -24,8 +13,19 @@
         class="w-full rounded-lg my-2"
         value="{{old('priority_number')}}">
     @error('priority_number')
-        <p class="text-red-500 -mt-2">{{$message}}</p>
+    <p class="text-red-500 -mt-2">{{$message}}</p>
     @enderror
+    <input
+        type="text"
+        name="name"
+        placeholder="Enter Category Name"
+        class="w-full rounded-lg my-2"
+        value="{{old('name')}}">
+    @error('name')
+    <p class="text-red-500 -mt-2">{{$message}}</p>
+    @enderror
+
+
 
     <div class="flex justify-center mt-5">
         <button

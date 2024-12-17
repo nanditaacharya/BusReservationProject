@@ -21,8 +21,10 @@ class Schedule extends Model
     ];
 
 
+    
+
     public function bus()
     {
-        return $this->belongsTo(AddBus::class);
+        return $this->belongsTo(AddBus::class, 'bus_id');  // Specify the correct foreign key ('bus_id')
     }
 }

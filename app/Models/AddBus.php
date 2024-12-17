@@ -27,8 +27,9 @@ class AddBus extends Model
         return $this->belongsTo(Category::class, 'category_id');
     }
 
+    // Define the relationship with Schedule
     public function schedules()
     {
-        return $this->hasMany(Schedule::class);
+        return $this->hasMany(Schedule::class, 'bus_id');  // Specify the foreign key here too
     }
 }

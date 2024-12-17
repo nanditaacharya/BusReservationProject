@@ -3,6 +3,29 @@
 @section('content')
 <h1 class="text-4xl font-extrabold text-blue-900">Bus Routes</h1>
 <hr class="h-1 bg-red-500">
+@if(session('success'))
+    <div 
+        id="toast-success" 
+        class="fixed top-5 right-5 bg-green-600 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3 z-50 transform transition-all duration-500 animate-fade-in"
+    >
+        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span class="font-semibold text-lg">{{ session('success') }}</span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const toast = document.getElementById('toast-success');
+                if (toast) {
+                    toast.classList.add('opacity-0', '-translate-y-5');
+                    setTimeout(() => toast.remove(), 1000);
+                }
+            }, 500);
+        });
+    </script>
+@endif
 
 <div class="text-right my-5">
     <a href="{{ route('bus-route.create') }}" class="bg-blue-900 text-white px-5 py-3 rounded-lg">Add Bus Route</a>
