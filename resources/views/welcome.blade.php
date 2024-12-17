@@ -1,65 +1,85 @@
-
 @extends('layouts.master')
 @section('content')
 
-<div class="px-6 sm:px-12 py-10 bg-gradient-to-b from-sky-100 to-lavender-50 min-h-screen">
-    <!-- Hero Section -->
-    @if(Route::currentRouteName() == 'home')
-    <div class="relative w-full h-[600px]">
-        <img src="{{ asset('images\categories\joomla welcome.jpg') }}" alt="Bus Categories" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white text-center">
-            <br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <h1 class="text-4xl font-bold mb-4">Explore Our Bus Categories</h1>
-            <p class="mb-6">Find the best buses for your next journey</p>
-            <a href="#categories" class="bg-sky-600 text-white px-6 py-3 rounded-md no-underline hover:bg-sky-400">
-                View Categories
-            </a>
-        </div>
+<div class="relative bg-gradient-to-b from-black to-gray-900 min-h-[75vh]">
+    <div class="absolute inset-0 z-0">
+        <img src="{{ asset('images/random/wallpaper.jpg') }}" 
+             alt="Bus Background" 
+             class="w-full h-full object-cover opacity-50">
     </div>
-    @endif
+    <div class="absolute inset-0 bg-black opacity-60 z-0"></div>
 
-    <br><br><br>
-    <div class="px-16" id="categories">
-        <!-- Bus Categories Section -->
-        <div class="text-center mb-6">
-            <h2 class="text-4xl font-bold text-sky-800">Available Bus Categories</h2>
-            <p class="text-gray-700">Choose a category that fits your travel needs.</p>
-        </div>
-        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center">
-            @foreach($categories as $category)
-            <a href="{{ route('viewcategory', $category->id) }}" class="group">
-                <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300">
-                    <!-- Bus Image -->
-                    <img src="{{ asset('images/categories/' . $category->picture) }}"
-                         alt="{{ $category->name }}"
-                         class="w-24 h-24 mx-auto mb-4 rounded-full object-cover group-hover:scale-110 transform transition duration-300">
-
-                    <!-- Bus Name -->
-                    <h3 class="text-xl font-bold text-blue-900 group-hover:text-blue-700 transition duration-300">
-                        {{ $category->name }}
-                    </h3>
-
-                    <!-- Bus Description -->
-                    <p class="text-gray-600 text-sm mt-2 line-clamp-3 overflow-hidden">
-                        {{ Str::limit($category->types, 80, '...') }}
-                    </p>
-
-                    <!-- Button -->
-                    <button class="mt-4 bg-sky-600 hover:bg-sky-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">
-                        View Details
-                    </button>
-
-                    <!-- Hover Effect -->
-                    <div class="absolute inset-0 bg-blue-100 opacity-0 group-hover:opacity-30 rounded-lg transition duration-300"></div>
-                </div>
-            </a>
-            @endforeach
-        </div>
+    <div class="relative z-10 flex flex-col justify-center items-center text-white text-center h-[75vh]">
+        <h1 class="text-6xl font-extrabold drop-shadow-2xl mb-6">Discover Your Next Bus Journey</h1>
+        <p class="text-lg md:text-2xl max-w-4xl px-4 md:px-0 mb-8">
+            Book premium buses for your trips at affordable prices. Comfort, safety, and convenience guaranteed.
+        </p>
+        <a href="#details" class="bg-sky-600 hover:bg-sky-700 px-8 py-3 text-lg font-bold rounded-md shadow-lg transition duration-300">
+            Book Now
+        </a>
     </div>
 </div>
 
+<div class="bg-white py-16 px-6 md:px-16">
+    <div class="text-center mb-12">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-4">Why Choose Us?</h2>
+        <p class="text-gray-600 text-lg">
+            Experience the best in bus booking with safety, convenience, and time-saving services.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="flex flex-col items-center bg-gray-100 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <div class="w-16 h-16 mb-4">
+                <img src="{{ asset('images/random/safetravel.png') }}" 
+                     alt="Safe Journey" 
+                     class="w-full h-full object-contain">
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Safe Journey</h3>
+            <p class="text-gray-600 text-center">
+                Travel with peace of mind knowing our buses prioritize safety and comfort.
+            </p>
+        </div>
+
+        <div class="flex flex-col items-center bg-gray-100 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <div class="w-16 h-16 mb-4">
+                <img src="{{ asset('images/random/timesaving.png') }}" 
+                     alt="Time-Saving" 
+                     class="w-full h-full object-contain">
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Time-Saving</h3>
+            <p class="text-gray-600 text-center">
+                Save time with our easy-to-use booking platform and fast booking process.
+            </p>
+        </div>
+
+        <div class="flex flex-col items-center bg-gray-100 p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <div class="w-16 h-16 mb-4">
+                <img src="{{ asset('images/random/easybooking.png') }}" 
+                     alt="Easy Booking" 
+                     class="w-full h-full object-contain">
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Easy Booking</h3>
+            <p class="text-gray-600 text-center">
+                Book your bus seats effortlessly with a smooth and intuitive process.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Call-to-Action Section
+<div class="bg-sky-700 text-white py-16 text-center">
+    <h2 class="text-4xl font-extrabold mb-6">Ready to Book Your Seat?</h2>
+    <p class="text-lg max-w-3xl mx-auto mb-8">
+        Don’t miss out on comfortable and safe travel. Book your tickets now and enjoy hassle-free journeys.
+    </p>
+    <a href="" 
+       class="bg-white text-sky-700 px-8 py-3 text-lg font-bold rounded-md shadow-lg hover:bg-gray-200 transition duration-300">
+        Get Started
+    </a>
+</div> -->
+
 @endsection
-
-
-
-

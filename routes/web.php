@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[PagesController::class,'welcome'])->name('home');
+Route::get('/booking',[PagesController::class,'booking'])->name('booking');
 Route::get('/viewcategory/{id}',[PagesController::class,'viewcategory'])->name('viewcategory');
 
 Route::get('/bus-route', [BusRouteController::class, 'index'])->name('bus-route.index');
