@@ -21,13 +21,14 @@ class AddBus extends Model
     public function route()
     {
         return $this->belongsTo(BusRoute::class);
-      
     }
-
-
-
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class, 'category_id');
     }
 
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
 }
